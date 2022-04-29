@@ -1,0 +1,18 @@
+{
+  "cadastro": [
+    {
+      "nome": "Fabiano",
+      "email": "teste@com",
+      "cpf": "123456789",
+      "dataNascimento":"10/03/1974",
+      "idade":"48"
+    },
+    {
+      "nome": "Fabiano",
+      "email": "teste@com",
+      "cpf": "123456789",
+      "dataNascimento":"10/03/1974",
+      "idade":"48"
+    }
+  ]
+}
