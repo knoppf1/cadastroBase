@@ -1,5 +1,5 @@
+import { CadastroBaseService } from './../cadastro-base.service';
 import { Component, OnInit } from '@angular/core';
-
 
 
 @Component({
@@ -10,14 +10,30 @@ import { Component, OnInit } from '@angular/core';
 export class CadastroBaseListComponent implements OnInit {
 
   itens: any[] = [];
+  error: string = '';
+
 
   constructor(
-
+    private cadastroBaseService: CadastroBaseService,
   ) { }
 
   ngOnInit(): void {
-
+    this.load();
   }
 
+  load(){
+    console.log('Load');
+    this.cadastroBaseService.listar().subscribe((res)=>{
+      this.itens=res;
+    })
+  }
+
+  delete(id: number) {
+    if(confirm('Você deseja excluir o resgitro?')){
+      this.cadastroBaseService.delete(id).subscribe(res =>{
+      this.load();
+      });
+    }
+  }
 
 }

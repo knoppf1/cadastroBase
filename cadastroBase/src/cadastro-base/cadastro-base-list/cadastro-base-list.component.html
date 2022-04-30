@@ -7,6 +7,7 @@
         <thead>
             <tr >
                 <!-- <th>#</th> -->
+                <th>#</th>
                 <th>Nome</th>
                 <th>Email</th>
                 <th>CPF</th>
@@ -17,15 +18,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of itens ">
-                <!-- <th scope="row">{{item.id}}</th> -->
+                <th scope="row">{{item.id}}</th>
                 <td>{{item.nome}}</td>
                 <td>{{item.email}}</td>
                 <td>{{item.cpf}}</td>
                 <td>{{item.dataNascimento}}</td>
                 <td>{{item.idade}}</td>
                 <td>
-                    <!-- <button type="button" [routerLink]="['view']" class="btn btn-xs btn-outline-info">Editar</button> -->
-                    <!-- <button type="button" (click)="delete(item.id)" class="btn btn-xs btn-outline-danger">Excluir</button> -->
+                    <button type="button" [routerLink]="['/view',item.id]" class="btn btn-xs btn-outline-info">Editar</button>
+                    <button type="button" (click)="delete(item.id)" class="btn btn-xs btn-outline-danger">Excluir</button>
                 </td>
             </tr>
 

@@ -1,1 +1,50 @@
-<p>cadastro-base-view works!</p>
+<div class="container-fluid flex-grow-1 container-p-y">
+  <div class="card-body" [formGroup]="frmForm">
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6 col-sm-6">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome"
+          formControlName="nome" >
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="form-group col-md-6 col-sm-6">
+        <label class="form-label">CPF</label>
+        <input type="text" class="form-control" id="cpf"
+          formControlName="cpf" >
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="form-group col-md-6 col-sm-6">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" id="email"
+          formControlName="email" >
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="form-group col-md-6 col-sm-6">
+        <label class="form-label">Data Nascimento</label>
+        <input type="text" class="form-control" id="dataNascimento"
+          formControlName="dataNascimento" >
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="form-group col-md-6 col-sm-6">
+        <label class="form-label">Idade</label>
+        <input type="text" class="form-control" id="idade"
+          formControlName="idade" >
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="form-group col-md-12 col-sm-12 mt-4">
+        <button type="submit" class="btn btn-primary" (click)="save($event)">Salvar</button>
+        <a tabindex="0" [routerLink]="['/list']" class="btn btn-outline-secondary">Voltar</a>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
