@@ -1,4 +1,4 @@
-# cadastroBase
+# CadastroBase
 Modelo de cadastro em Angular
 
 # Procedimento para instalação
