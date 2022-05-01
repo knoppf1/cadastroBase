@@ -1,11 +1,20 @@
 <div class="container-fluid flex-grow-1 container-p-y">
-  <div class="card-body" [formGroup]="frmForm">
+  <div class="card-body" [formGroup]="frmForm" >
 
     <div class="form-row">
 
+      <!-- <div class="form-group col-md-6 col-sm-12">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="nome">
+        <span class="text-danger"
+            *ngIf="(f['nome'].touched || submitted) && f['nome'].errors?.['minLength']">
+            Name is required
+        </span>
+      </div> -->
+
       <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nome"
+        <input type="text" class="form-control" id="nome" placeholder="Mínimo 5 letras"
             formControlName="nome" [ngClass]="{ 'is-invalid' :
             submitted &&
             f['nome'].errors}" >
@@ -18,10 +27,10 @@
 
       <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">CPF</label>
-        <input type="text" class="form-control" id="cpf"
+        <input type="text" class="form-control" id="cpf" placeholder="Somente Números"
             formControlName="cpf" [ngClass]="{ 'is-invalid' :
             submitted &&
-            f['cpf'].errors}" mask="01234567890">
+            f['cpf'].errors}" >
         <span class="invalid-feedback"
             *ngIf="f['cpf'].errors?.['minLength(11)']">CPF Inválido</span>
         <div class="clearfix"></div>
@@ -29,7 +38,7 @@
 
       <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Email</label>
-        <input type="email" class="form-control" id="email"
+        <input type="email" class="form-control" id="email" placeholder="usuário@usuário.com"
             formControlName="email" [ngClass]="{ 'is-invalid' :
             submitted &&
             f['email'].errors}" >
@@ -40,7 +49,7 @@
 
       <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Data Nascimento</label>
-        <input type="text" class="form-control" id="dataNascimento"
+        <input type="text" class="form-control" id="dataNascimento" placeholder=" XX/XX/XXXX"
             formControlName="dataNascimento" [ngClass]="{ 'is-invalid' :
             submitted &&
             f['dataNascimento'].errors}" mask="00/00/0000">
@@ -52,7 +61,7 @@
 
       <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Idade</label>
-        <input type="text" class="form-control" id="idade"
+        <input type="text" class="form-control" id="idade" placeholder="Idade mínima 18 anos"
             formControlName="idade" [ngClass]="{ 'is-invalid' :
             submitted &&
             f['idade'].errors}" >
@@ -61,11 +70,8 @@
         <div class="clearfix"></div>
       </div>
 
-
-
-
       <div class="form-group col-md-12 col-sm-12 mt-4">
-        <button type="submit" class="btn btn-primary" [disabled]="!frmForm.valid" (click)="save($event)">Salvar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!frmForm.valid" (click)="save($event)">Salvar</button>
         <a tabindex="0" [routerLink]="['/list']" class="btn btn-outline-secondary">Voltar</a>
       </div>
     </div>
