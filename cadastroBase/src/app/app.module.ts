@@ -1,13 +1,15 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 import { HttpClientModule} from '@angular/common/http';
 import { CadastroBaseModule } from 'src/cadastro-base/cadastro-base.module';
+
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,9 @@ import { CadastroBaseModule } from 'src/cadastro-base/cadastro-base.module';
     FormsModule,
     HttpClientModule,
     CadastroBaseModule,
+
+    NgxMaskModule.forRoot(),
+
     AppRoutingModule
   ],
   providers: [],

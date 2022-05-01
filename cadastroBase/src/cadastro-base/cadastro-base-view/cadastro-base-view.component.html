@@ -3,40 +3,66 @@
 
     <div class="form-row">
 
-      <div class="form-group col-md-6 col-sm-6">
+      <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome"
-          formControlName="nome" >
+            formControlName="nome" [ngClass]="{ 'is-invalid' :
+            submitted &&
+            f['nome'].errors}" >
+        <span class="invalid-feedback"
+            *ngIf="f['nome'].errors?.['minLength(5)']">Este
+            campo é
+            obrigatório</span>
         <div class="clearfix"></div>
       </div>
 
-      <div class="form-group col-md-6 col-sm-6">
+      <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">CPF</label>
         <input type="text" class="form-control" id="cpf"
-          formControlName="cpf" >
+            formControlName="cpf" [ngClass]="{ 'is-invalid' :
+            submitted &&
+            f['cpf'].errors}" mask="01234567890">
+        <span class="invalid-feedback"
+            *ngIf="f['cpf'].errors?.['minLength(11)']">CPF Inválido</span>
         <div class="clearfix"></div>
       </div>
 
-      <div class="form-group col-md-6 col-sm-6">
+      <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Email</label>
-        <input type="text" class="form-control" id="email"
-          formControlName="email" >
+        <input type="email" class="form-control" id="email"
+            formControlName="email" [ngClass]="{ 'is-invalid' :
+            submitted &&
+            f['email'].errors}" >
+        <span class="invalid-feedback"
+            *ngIf="f['email'].errors?.['email']">Email Inválido</span>
         <div class="clearfix"></div>
       </div>
 
-      <div class="form-group col-md-6 col-sm-6">
+      <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Data Nascimento</label>
         <input type="text" class="form-control" id="dataNascimento"
-          formControlName="dataNascimento" >
+            formControlName="dataNascimento" [ngClass]="{ 'is-invalid' :
+            submitted &&
+            f['dataNascimento'].errors}" mask="00/00/0000">
+        <span class="invalid-feedback"
+            *ngIf="f['dataNascimento'].errors?.['required']">Este
+            campo é obrigatório</span>
         <div class="clearfix"></div>
       </div>
 
-      <div class="form-group col-md-6 col-sm-6">
+      <div class="form-group col-md-6 col-sm-12">
         <label class="form-label">Idade</label>
         <input type="text" class="form-control" id="idade"
-          formControlName="idade" >
+            formControlName="idade" [ngClass]="{ 'is-invalid' :
+            submitted &&
+            f['idade'].errors}" >
+        <span class="invalid-feedback"
+            *ngIf="f['idade'].errors?.['min(18)']">Menor de idade</span>
         <div class="clearfix"></div>
       </div>
+
+
+
 
       <div class="form-group col-md-12 col-sm-12 mt-4">
         <button type="submit" class="btn btn-primary" (click)="save($event)">Salvar</button>

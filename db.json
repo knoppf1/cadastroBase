@@ -1,20 +1,12 @@
 {
   "cadastro": [
     {
-      "id": 2,
       "nome": "Fabiano",
       "email": "teste@com",
       "cpf": "123456789",
       "dataNascimento": "10/03/1974",
-      "idade": "48"
-    },
-    {
-      "nome": "João da Silva",
-      "email": "João@teste",
-      "cpf": "879",
-      "dataNascimento": "15/01/78",
-      "idade": "45",
-      "id": 3
+      "idade": "28",
+      "id": 2
     }
   ]
 }

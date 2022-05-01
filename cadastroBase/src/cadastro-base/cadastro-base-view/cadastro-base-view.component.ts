@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 import { CadastroBaseService } from '../cadastro-base.service';
 
 @Component({
@@ -13,6 +14,8 @@ import { CadastroBaseService } from '../cadastro-base.service';
 export class CadastroBaseViewComponent implements OnInit {
   id: any= "";
   frmForm: FormGroup;
+  submitted: boolean = false;
+  erro: string;
 
   constructor(
     private cadastroBaseService: CadastroBaseService,
@@ -33,11 +36,11 @@ export class CadastroBaseViewComponent implements OnInit {
 
   createForm(): FormGroup {
     return this.fb.group({
-     nome : ['',Validators.required],
-     email : ['',Validators.required],
-     cpf : ['',Validators.required],
+     nome : ['',Validators.minLength(5)],
+     email : ['',Validators.email],
+     cpf : ['',Validators.minLength(11)],
      dataNascimento : ['',Validators.required],
-     idade : ['',Validators.required],
+     idade : ['',Validators.min(18)],
     });
  }
 
@@ -51,13 +54,6 @@ export class CadastroBaseViewComponent implements OnInit {
   });
  }
 
- save1(_$event: any) {
-    console.log('Salvar',this.frmForm.value);
-    this.cadastroBaseService.adicionar(this.frmForm.value).subscribe(res =>{
-    });
-  }
-
-
   save(_$event: any) {
     if(this.id != 0){
       this.cadastroBaseService.editar(this.id, this.frmForm.value).subscribe(res =>{
@@ -65,9 +61,10 @@ export class CadastroBaseViewComponent implements OnInit {
     }
     else{
       this.cadastroBaseService.adicionar(this.frmForm.value).subscribe(res =>{
-      }
-      );
+      });
     }
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate(['list']));
   }
 
 }
