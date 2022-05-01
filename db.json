@@ -3,10 +3,18 @@
     {
       "nome": "Fabiano",
       "email": "teste@com",
-      "cpf": "123456789",
+      "cpf": "12345678911",
       "dataNascimento": "10/03/1974",
-      "idade": "28",
+      "idade": "21",
       "id": 2
+    },
+    {
+      "nome": "Fabiano",
+      "email": "teste@gmail.com",
+      "cpf": "12345678901",
+      "dataNascimento": "10/03/1974",
+      "idade": "18",
+      "id": 3
     }
   ]
 }
