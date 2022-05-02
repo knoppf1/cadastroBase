@@ -4,25 +4,17 @@
       "nome": "Fabiano",
       "email": "teste@com",
       "cpf": "12345678911",
-      "dataNascimento": "10/03/1974",
-      "idade": "21",
+      "dataNascimento": "10/03/1975",
+      "idade": 47,
       "id": 2
     },
     {
       "nome": "Fabiano",
       "email": "teste@gmail.com",
       "cpf": "12345678901",
-      "dataNascimento": "10/03/1974",
-      "idade": "18",
+      "dataNascimento": "10/03/1978",
+      "idade": 44,
       "id": 3
-    },
-    {
-      "nome": "Fabiano",
-      "email": "Teste@gmail.com",
-      "cpf": "12345678911",
-      "dataNascimento": "10/031974",
-      "idade": "25",
-      "id": 4
     }
   ]
 }

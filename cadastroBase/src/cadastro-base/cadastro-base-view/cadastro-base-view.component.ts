@@ -41,7 +41,7 @@ export class CadastroBaseViewComponent implements OnInit {
      email : ['',Validators.email],
      cpf : ['',Validators.minLength(11)],
      dataNascimento : ['',Validators.required],
-     idade : ['',Validators.min(18)],
+     idade : [{ value: '', disabled: true },Validators.min(18)],
     });
  }
 
@@ -56,6 +56,13 @@ export class CadastroBaseViewComponent implements OnInit {
  }
 
   save(_$event: any) {
+
+    // Cálculo da idade
+    var anoAtual = new Date().getFullYear();
+    var ano_informado = Number(this.frmForm.value.dataNascimento.split('/')[2]);
+    var idade = (anoAtual - ano_informado);
+    this.frmForm.value.idade = idade;
+
     if(this.id != 0){
       this.cadastroBaseService.editar(this.id, this.frmForm.value).subscribe(res =>{
       });
