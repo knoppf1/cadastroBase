@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { HttpClientModule} from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr'
 import { CadastroBaseModule } from 'src/cadastro-base/cadastro-base.module';
 
 
@@ -22,7 +23,7 @@ import { CadastroBaseModule } from 'src/cadastro-base/cadastro-base.module';
     FormsModule,
     HttpClientModule,
     CadastroBaseModule,
-
+    ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),
 
     AppRoutingModule

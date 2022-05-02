@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrModule, ToastrService } from 'ngx-toastr'
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -22,6 +23,7 @@ export class CadastroBaseViewComponent implements OnInit {
     private cadastroBaseService: CadastroBaseService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private router: Router,
   ) { }
 
@@ -57,22 +59,29 @@ export class CadastroBaseViewComponent implements OnInit {
 
   save(_$event: any) {
 
+    this.toastr.clear();
     // Cálculo da idade
     var anoAtual = new Date().getFullYear();
     var ano_informado = Number(this.frmForm.value.dataNascimento.split('/')[2]);
     var idade = (anoAtual - ano_informado);
     this.frmForm.value.idade = idade;
 
-    if(this.id != 0){
-      this.cadastroBaseService.editar(this.id, this.frmForm.value).subscribe(res =>{
-      });
+    if(this.frmForm.value.idade > 18){
+      if(this.id != 0){
+        this.cadastroBaseService.editar(this.id, this.frmForm.value).subscribe(res =>{
+        });
+      }
+      else{
+        this.cadastroBaseService.adicionar(this.frmForm.value).subscribe(res =>{
+        });
+      }
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+        this.router.navigate(['list']));
+    }else{
+      console.log("Menor de idade!");
+      this.toastr.warning('VERIFIQUE A IDADE!');
     }
-    else{
-      this.cadastroBaseService.adicionar(this.frmForm.value).subscribe(res =>{
-      });
-    }
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-      this.router.navigate(['list']));
+
   }
 
 }
