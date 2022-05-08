@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Filme } from 'src/inicial/filme/model/Filme';
@@ -17,4 +17,9 @@ export class FavoritosService {
 
 listar(): Observable<Filme[]> {return this.http.get<any>(this.apiUrl + 'favoritos');
       }
+
+adicionarcompras(data: any): Observable<any> {
+        console.log('Adicionar', data)
+        return this.http.post(this.apiUrl + 'compras', data);
+        }
 }

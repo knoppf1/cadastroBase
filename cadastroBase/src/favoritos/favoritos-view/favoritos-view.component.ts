@@ -11,6 +11,9 @@ export class FavoritosViewComponent implements OnInit {
   favoritos: any;
   filme: any;
   favoritar = false;
+  id: any= "";
+  titulo: any= "";
+  preco: any= "";
 
   constructor(
     private favoritosService: FavoritosService,
@@ -29,5 +32,11 @@ export class FavoritosViewComponent implements OnInit {
        })
 
    }
+
+  adicionarcompras(_$event: any) {
+            this.favoritosService.adicionarcompras(this.id).subscribe(res =>{
+            });
+      }
+
 
 }

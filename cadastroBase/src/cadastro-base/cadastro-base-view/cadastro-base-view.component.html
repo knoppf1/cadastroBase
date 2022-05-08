@@ -52,22 +52,6 @@
             <div class="clearfix"></div>
           </div>
 
-          <!-- <div class="form-group col-md-6 col-sm-12"  >
-            <label class="form-label">Idade</label>
-            <input  type="text"  class="form-control" id="idade" placeholder="Idade mínima 18 anos"
-                formControlName="idade" [ngClass]="{ 'is-invalid' :
-                submitted &&
-                f['idade'].errors}" >
-            <span class="invalid-feedback"
-                *ngIf="f['idade'].errors?.['min(18)']">Menor de idade</span>
-            <div class="clearfix"></div>
-          </div> -->
-
-          <!-- <div class="form-group col-md-12 col-sm-12 mt-4">
-            <button type="submit" class="btn btn-success" [disabled]="!frmForm.valid" (click)="save($event)">Salvar</button>
-            <a tabindex="0" [routerLink]="['/list']" class="btn btn-outline-secondary">Voltar</a>
-          </div> -->
-
         </div>
       </div>
 
@@ -81,6 +65,7 @@
                   <th>Titulo</th>
                   <th>Preço</th>
                   <th>Quantidade</th>
+                  <th>Ação</th>
               </tr>
           </thead>
           <tbody>
@@ -89,9 +74,15 @@
                   <td>{{item.titulo}}</td>
                   <td>{{item.preco | currency: 'BRL'}}</td>
                   <td>{{item.quantidade}}</td>
+                  <td>
+                    <button type="button" (click)="delete(item.id)" class="btn btn-xs btn-outline-danger">Excluir</button>
+                </td>
               </tr>
           </tbody>
         </table>
+        <div class="form-group col-md-12 col-sm-12 mt-4">
+          <button type="submit" class="btn btn-success" > Finalizar</button>
+        </div>
       </div>
     </div>
   </div>

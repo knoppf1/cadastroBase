@@ -47,6 +47,15 @@ export class CadastroBaseService {
   );
   }
 
+  deletecompras(id: number): Observable<any> {
+    console.log('deletando', id)
+    return this.http.delete(this.apiUrl + 'compras/'+id);
+  }
+  adicionarcompras(data: any): Observable<any> {
+    console.log('Adicionar', data);
+    return this.http.post(this.apiUrl + 'compras',data);
+    }
+
 }
 
 

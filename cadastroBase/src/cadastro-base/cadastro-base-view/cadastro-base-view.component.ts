@@ -85,6 +85,17 @@ export class CadastroBaseViewComponent implements OnInit {
     })
   }
 
+  delete(id: number) {
+    if(confirm('Você deseja excluir o resgitro?')){
+      this.cadastroBaseService.deletecompras(id).subscribe(res =>{
+        this.loadcompras();
+      });
+    }
+  }
+
+
+
+
 }
 
 
