@@ -5,7 +5,7 @@ import { CadastroBaseViewComponent } from './cadastro-base-view/cadastro-base-vi
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'list',
     component: CadastroBaseListComponent
     },
     // {

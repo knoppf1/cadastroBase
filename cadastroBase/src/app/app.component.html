@@ -1,22 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="https://www.sabium.com.br/">Sabium Sistemas</a>
+    <!-- <img [src]=".../cadastroBase/src/assets/img/dotgrouplogo.png"class="card-img-top" alt="..."> -->
+    <a class="navbar-brand" href="https://dotgroup.com.br/">Loja Filmes Dot</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active fa-brands fa-linkedin" href="https://www.linkedin.com/in/fabiano-kerstner/">LinkedIn</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active fa-brands fa-github" href="https://github.com/knoppf1">GitHub</a>
-        </li>
-      </ul>
       <form class="d-flex">
-        <a tabindex="0" [routerLink]="['/view']" class="btn btn-success">Adicionar</a>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <a tabindex="0" [routerLink]="['/view']" class="btn btn-success">Pesquisar</a>
       </form>
+
     </div>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <li class="nav-item " >
+        <a class="nav-link active " href="https://www.linkedin.com/in/fabiano-kerstner/">LinkedIn</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active " href="https://github.com/knoppf1">GitHub</a>
+      </li>
+    </ul>
+
   </div>
 </nav>
 <router-outlet></router-outlet>
