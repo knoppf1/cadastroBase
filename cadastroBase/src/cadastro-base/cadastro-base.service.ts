@@ -42,6 +42,11 @@ export class CadastroBaseService {
     return this.http.get(this.apiUrl+'cadastro/'+id);
   }
 
+  listarcompras():Observable<any> {return this.http.get(this.apiUrl + 'compras').pipe(
+    tap(compras =>console.log('Res lista compras', compras))
+  );
+  }
+
 }
 
 

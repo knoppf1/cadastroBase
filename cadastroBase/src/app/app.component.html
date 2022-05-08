@@ -9,19 +9,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <a tabindex="0" [routerLink]="['/view']" class="btn btn-success">Pesquisar</a>
+        <!-- <a tabindex="0" [routerLink]="['']" class="btn btn-success">Pesquisar</a> -->
       </form>
-
     </div>
+
+
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+      <li class="nav-item" >
+        <a tabindex="0" [routerLink]="['/favoritos']" class="btn btn-success">Favoritos</a>
+      </li>
+
       <li class="nav-item " >
-        <a class="nav-link active " href="https://www.linkedin.com/in/fabiano-kerstner/">LinkedIn</a>
+        <a tabindex="0" [routerLink]="['/compras']" class="btn btn-success">Comprar</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active " href="https://github.com/knoppf1">GitHub</a>
-      </li>
+
+
     </ul>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item " >
+          <p class="nav-link" href="#">Fabiano: (</p>
+        </li>
+        <li class="nav-item " >
+          <a class="nav-link active " href="https://www.linkedin.com/in/fabiano-kerstner/">LinkedIn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active " href="https://github.com/knoppf1">GitHub</a>
+        </li>
+        <li class="nav-item " >
+          <p class="nav-link" href="#"> )</p>
+        </li>
+      </ul>
 
   </div>
 </nav>

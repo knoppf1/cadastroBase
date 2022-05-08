@@ -1,0 +1,26 @@
+<div class="container-fluid flex-grow-1 container-p-y">
+  <div class= "row">
+    <div class="col-md-3" *ngFor="let filme of favoritos ">
+      <div class="card-body " >
+        <div class="card" style="width: 18rem;">
+          <img [src]="filme.urlFoto"class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Título: {{filme.titulo}} </h5>
+            <!-- <p class="card-text">Descrição: {{filme.descricao}}</p> -->
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Data Lançamento {{filme.dtLancamento}} </li>
+            <li class="list-group-item">Nota: {{filme.nota}} </li>
+            <li class="list-group-item">Gênero: {{filme.genero}} </li>
+            <li class="list-group-item">Preço: {{filme.preco | currency: 'BRL' }} </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link" *ngIf="favoritar">Favoritar</a>
+            <a href="#" class="card-link" [routerLink]="['/compras']">Comprar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

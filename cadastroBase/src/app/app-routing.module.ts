@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroBaseListComponent } from 'src/cadastro-base/cadastro-base-list/cadastro-base-list.component';
 import { CadastroBaseViewComponent } from 'src/cadastro-base/cadastro-base-view/cadastro-base-view.component';
+import { FavoritosViewComponent } from 'src/favoritos/favoritos-view/favoritos-view.component';
 import { InicialViewComponent } from 'src/inicial/inicial-view/inicial-view.component';
 
 const routes: Routes = [
@@ -29,11 +30,21 @@ const routes: Routes = [
   ],
 },
 {
-  path: 'view',
+  path: 'compras',
   children: [
     {
       path: '',
       component: CadastroBaseViewComponent
+    },
+
+]
+},
+{
+  path: 'favoritos',
+  children: [
+    {
+      path: '',
+      component: FavoritosViewComponent
     },
 
 ]

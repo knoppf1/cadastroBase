@@ -1,6 +1,6 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { InicialRoutingModule } from './inicial-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InicialViewComponent } from './inicial-view/inicial-view.component';

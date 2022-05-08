@@ -18,6 +18,7 @@ export class CadastroBaseViewComponent implements OnInit {
   frmForm: FormGroup;
   submitted: boolean = false;
   erro: string;
+  itens: any[] = [];
 
   constructor(
     private cadastroBaseService: CadastroBaseService,
@@ -30,11 +31,7 @@ export class CadastroBaseViewComponent implements OnInit {
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id')!;
     this.frmForm = this.createForm();
-    if(this.id == 0){
-      console.log('This id2', this.id);
-    }else{
-      this.load();
-    }
+    this.loadcompras();
   }
 
   createForm(): FormGroup {
@@ -43,7 +40,7 @@ export class CadastroBaseViewComponent implements OnInit {
      email : ['',Validators.email],
      cpf : ['',Validators.minLength(11)],
      dataNascimento : ['',Validators.required],
-     idade : [{ value: '', disabled: true },Validators.min(18)],
+    //  idade : [{ value: '', disabled: true },Validators.min(18)],
     });
  }
 
@@ -66,7 +63,6 @@ export class CadastroBaseViewComponent implements OnInit {
     var idade = (anoAtual - ano_informado);
     this.frmForm.value.idade = idade;
 
-    if(this.frmForm.value.idade > 18){
       if(this.id != 0){
         this.cadastroBaseService.editar(this.id, this.frmForm.value).subscribe(res =>{
         });
@@ -77,11 +73,16 @@ export class CadastroBaseViewComponent implements OnInit {
       }
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
         this.router.navigate(['list']));
-    }else{
-      console.log("Menor de idade!");
-      this.toastr.warning('VERIFIQUE A IDADE!');
-    }
 
+
+  }
+
+
+  loadcompras(){
+    console.log('Load');
+    this.cadastroBaseService.listarcompras().subscribe((res)=>{
+      this.itens=res;
+    })
   }
 
 }

@@ -1,82 +1,98 @@
 <div class="container-fluid flex-grow-1 container-p-y">
   <div class="card-body" [formGroup]="frmForm" >
+    <div class="row">
 
-    <div class="form-row">
+      <!-- Cadastro Cliente -->
+      <div class="col-md-6">
+        <div class="form-row">
+          <div class="form-group col-md-6 col-sm-12">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Mínimo 5 letras"
+                formControlName="nome" [ngClass]="{ 'is-invalid' :
+                submitted &&
+                f['nome'].errors}" >
+            <span class="invalid-feedback"
+                *ngIf="f['nome'].errors?.['minLength(5)']">Este
+                campo é
+                obrigatório</span>
+            <div class="clearfix"></div>
+          </div>
 
-      <!-- <div class="form-group col-md-6 col-sm-12">
-        <label>Name</label>
-        <input type="text" class="form-control" formControlName="nome">
-        <span class="text-danger"
-            *ngIf="(f['nome'].touched || submitted) && f['nome'].errors?.['minLength']">
-            Name is required
-        </span>
-      </div> -->
+          <div class="form-group col-md-6 col-sm-12">
+            <label class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" placeholder="Somente Números"
+                formControlName="cpf" [ngClass]="{ 'is-invalid' :
+                submitted &&
+                f['cpf'].errors}" >
+            <span class="invalid-feedback"
+                *ngIf="f['cpf'].errors?.['minLength(11)']">CPF Inválido</span>
+            <div class="clearfix"></div>
+          </div>
 
-      <div class="form-group col-md-6 col-sm-12">
-        <label class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nome" placeholder="Mínimo 5 letras"
-            formControlName="nome" [ngClass]="{ 'is-invalid' :
-            submitted &&
-            f['nome'].errors}" >
-        <span class="invalid-feedback"
-            *ngIf="f['nome'].errors?.['minLength(5)']">Este
-            campo é
-            obrigatório</span>
-        <div class="clearfix"></div>
+          <div class="form-group col-md-6 col-sm-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="usuário@usuário.com"
+                formControlName="email" [ngClass]="{ 'is-invalid' :
+                submitted &&
+                f['email'].errors}" >
+            <span class="invalid-feedback"
+                *ngIf="f['email'].errors?.['email']">Email Inválido</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="form-group col-md-6 col-sm-12">
+            <label class="form-label">Data Nascimento</label>
+            <input type="text" class="form-control" id="dataNascimento" placeholder=" XX/XX/XXXX"
+                formControlName="dataNascimento" [ngClass]="{ 'is-invalid' :
+                submitted &&
+                f['dataNascimento'].errors}" mask="00/00/0000">
+            <span class="invalid-feedback"
+                *ngIf="f['dataNascimento'].errors?.['required']">Este
+                campo é obrigatório</span>
+            <div class="clearfix"></div>
+          </div>
+
+          <!-- <div class="form-group col-md-6 col-sm-12"  >
+            <label class="form-label">Idade</label>
+            <input  type="text"  class="form-control" id="idade" placeholder="Idade mínima 18 anos"
+                formControlName="idade" [ngClass]="{ 'is-invalid' :
+                submitted &&
+                f['idade'].errors}" >
+            <span class="invalid-feedback"
+                *ngIf="f['idade'].errors?.['min(18)']">Menor de idade</span>
+            <div class="clearfix"></div>
+          </div> -->
+
+          <!-- <div class="form-group col-md-12 col-sm-12 mt-4">
+            <button type="submit" class="btn btn-success" [disabled]="!frmForm.valid" (click)="save($event)">Salvar</button>
+            <a tabindex="0" [routerLink]="['/list']" class="btn btn-outline-secondary">Voltar</a>
+          </div> -->
+
+        </div>
       </div>
 
-      <div class="form-group col-md-6 col-sm-12">
-        <label class="form-label">CPF</label>
-        <input type="text" class="form-control" id="cpf" placeholder="Somente Números"
-            formControlName="cpf" [ngClass]="{ 'is-invalid' :
-            submitted &&
-            f['cpf'].errors}" >
-        <span class="invalid-feedback"
-            *ngIf="f['cpf'].errors?.['minLength(11)']">CPF Inválido</span>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="form-group col-md-6 col-sm-12">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="usuário@usuário.com"
-            formControlName="email" [ngClass]="{ 'is-invalid' :
-            submitted &&
-            f['email'].errors}" >
-        <span class="invalid-feedback"
-            *ngIf="f['email'].errors?.['email']">Email Inválido</span>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="form-group col-md-6 col-sm-12">
-        <label class="form-label">Data Nascimento</label>
-        <input type="text" class="form-control" id="dataNascimento" placeholder=" XX/XX/XXXX"
-            formControlName="dataNascimento" [ngClass]="{ 'is-invalid' :
-            submitted &&
-            f['dataNascimento'].errors}" mask="00/00/0000">
-        <span class="invalid-feedback"
-            *ngIf="f['dataNascimento'].errors?.['required']">Este
-            campo é obrigatório</span>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="form-group col-md-6 col-sm-12"  >
-        <label class="form-label">Idade</label>
-        <input  type="text"  class="form-control" id="idade" placeholder="Idade mínima 18 anos"
-            formControlName="idade" [ngClass]="{ 'is-invalid' :
-            submitted &&
-            f['idade'].errors}" >
-        <span class="invalid-feedback"
-            *ngIf="f['idade'].errors?.['min(18)']">Menor de idade</span>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="form-group col-md-12 col-sm-12 mt-4">
-        <button type="submit" class="btn btn-success" [disabled]="!frmForm.valid" (click)="save($event)">Salvar</button>
-        <a tabindex="0" [routerLink]="['/list']" class="btn btn-outline-secondary">Voltar</a>
+      <!-- Lista compras -->
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+              <tr >
+                  <!-- <th>#</th> -->
+                  <th>#</th>
+                  <th>Titulo</th>
+                  <th>Preço</th>
+                  <th>Quantidade</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of itens ">
+                  <th scope="row">{{item.id}}</th>
+                  <td>{{item.titulo}}</td>
+                  <td>{{item.preco | currency: 'BRL'}}</td>
+                  <td>{{item.quantidade}}</td>
+              </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
   </div>
-
-
 </div>

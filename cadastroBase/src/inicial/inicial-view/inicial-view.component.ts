@@ -33,12 +33,12 @@ export class InicialViewComponent implements OnInit {
     })
   }
 
-  listarFilmes(): void {
+  // listarFilmes(): void {
 
-    this.inicialService.listar1()
-      .subscribe((filmes: Filme[]) => this.filmes.push(...filmes));
-      console.log('Testes',this.filmes)
-  }
+  //   this.inicialService.listar1()
+  //     .subscribe((filmes: Filme[]) => this.filmes.push(...filmes));
+  //     console.log('Testes',this.filmes)
+  // }
 
   listarFilmes1(): void {
 

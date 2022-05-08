@@ -12,6 +12,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { CadastroBaseModule } from 'src/cadastro-base/cadastro-base.module';
+import { FavoritosModule } from 'src/favoritos/favoritos.module';
+
 
 
 
@@ -28,11 +30,10 @@ import { CadastroBaseModule } from 'src/cadastro-base/cadastro-base.module';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    FavoritosModule,
 
     CadastroBaseModule,
-
     InicialModule,
-
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),
 
